@@ -10,8 +10,16 @@ export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const errorNotify = () => toast.error("Nope");
+    const normalNotify = () => toast.info("here we go", {
+        position: toast.POSITION.TOP_CENTER,
+        theme: "colored",
+        autoClose: false
+    })
+
     const handleSubmit = e => {
-        e.preventDefault
+        e.preventDefault();
+        toast.error("dsf");
     }
 
     return (
@@ -37,6 +45,12 @@ export default function LoginPage() {
                     Don't have an account? <Link href='/account/register'>Register</Link>
                 </p>
             </div>
+            <button onClick={errorNotify}>
+                error
+            </button>
+            <button onClick={normalNotify}>
+                normal
+            </button>
         </Layout>
     )
 }
